@@ -19,8 +19,11 @@ from app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^words/?$', views.WordsViewSet.as_view({'post': 'add'})),
+    url(r'^words/?$', views.WordsViewSet.as_view({'post': 'add', 'delete': 'delete_all'})),
     url(r'^words/count/?$', views.WordsViewSet.as_view({'get': 'count'})),
+    url(r'^words/word=(?P<word>[a-zA-Z]+)/?$', views.WordsViewSet.as_view({'delete': 'delete'})),
+
     url(r'^palindromes/count/?$', views.WordsViewSet.as_view({'get': 'palindrome_count'})),
-    url(r'^anagrams/count/?$', views.WordsViewSet.as_view({'get': 'anagram_count'}))
+    url(r'^anagrams/count/?$', views.WordsViewSet.as_view({'get': 'anagram_count'})),
+    url(r'^anagrams/word=(?P<word>[a-zA-Z]+)/?$', views.WordsViewSet.as_view({'get': 'get_anagrams'}))
 ]
