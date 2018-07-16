@@ -20,5 +20,7 @@ from app import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^words/?$', views.WordsViewSet.as_view({'post': 'add'})),
-    url(r'^words/count/?$', views.WordsViewSet.as_view({'get': 'count'}))
+    url(r'^words/count/?$', views.WordsViewSet.as_view({'get': 'count'})),
+    url(r'^palindromes/count/?$', views.WordsViewSet.as_view({'get': 'palindrome_count'})),
+    url(r'^anagrams/count/?$', views.WordsViewSet.as_view({'get': 'anagram_count'}))
 ]

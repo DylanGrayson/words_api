@@ -8,4 +8,4 @@ class Word(models.Model):
     letters = models.CharField(max_length=100)
     length = models.IntegerField()
     isPalindrome = models.BooleanField()
-    anagramCount = models.IntegerField(default=0)
+    hasAnagram = models.BooleanField()
