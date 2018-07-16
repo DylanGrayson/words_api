@@ -43,6 +43,7 @@ class WordsViewSet(viewsets.ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def get_anagrams(self, request, word, format="JSON"):
+        # Returns a (potentially empty) list of anagrams
         charList = list(word)
         charList.sort()
         letters = ''.join(charList)
@@ -69,7 +70,7 @@ class WordsViewSet(viewsets.ViewSet):
             w.delete()
             return Response(status=status.HTTP_202_ACCEPTED)
         except ObjectDoesNotExist:
-            return Response(status=status.HTTP_204_NO_CONTENT)
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
     def delete_all(self, request, format="JSON"):
         Word.objects.all().delete()

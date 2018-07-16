@@ -10,8 +10,8 @@ class WordSerializer(serializers.ModelSerializer):
         fields = ('word',)
 
     def create(self, validated_data):
+        # this word is definitely not duplicated and is already forced to lower
         word = validated_data['word']
-
         charList = list(word)
         charList.sort()
         palindrome = isPalindrome(word)
