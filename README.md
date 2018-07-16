@@ -4,7 +4,7 @@ simple word querying RESTful API
 
 This is a JSON only API.
 
-Adding words:
+# Adding words:
 POST /words  BODY= '["word1", ...]'
 - Returns 201 if at least one word in the list was added
 - Returns 204 if none of the words were added (already exist, or too long)
